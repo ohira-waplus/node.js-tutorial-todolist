@@ -1,0 +1,28 @@
+<div>ToDoリストのようなもの！</div>
+
+<form action="/insert" method="POST">
+  <div>name(文字列):<input type="text" name="name"></div>
+  <div>email(文字列):<input type="text" name="email"></div>
+  <div>age(数字):<input type="text" name="age"></div>
+  <button>送信する</button>
+</form>
+
+  <% for (var i = 0; i < dbList.length; i++) { %>
+    <form action="/update?id=<%- dbList[i].id %>" method="POST">
+      <table border="1">
+        <tr>
+            <th>name</th>
+            <td><input type="text" name="name" value="<%- dbList[i].name %>" ></td>
+            <th>age</th>
+            <td><input type="text" name="age" value="<%- dbList[i].age %>" ></td>
+            <th>email</th>
+            <td><input type="text" name="email" value="<%- dbList[i].email %>" ></td>
+            <td><button>更新</button></td>
+            <td><input type="button" onclick="location.href='/delete?id=<%- dbList[i].id %>'" value="削除"></td>
+        </tr>
+        <tr>
+          
+        </tr>
+      </table>
+    </form>
+  <% } %>
